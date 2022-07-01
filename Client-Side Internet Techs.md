@@ -107,7 +107,7 @@ If we want to make the style as an external file, need to: change<style> tag to 
 One html can use multiple css. If there are conflicts for a same class in different css files, the latest file works
 Similarly, one css can be applied to multiple htmls.
 
-For some tag, for example <h1>, if we donot want the internal attributes, for example border, margin and padding, we can use the reset file:
+For some tag, for example `<h1>`, if we donot want the internal attributes, for example border, margin and padding, we can use the reset file:
 Just google reset.css (CSS: the missing manual, myweb.com)
 	
 	In CSS:
