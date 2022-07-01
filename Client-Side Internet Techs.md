@@ -25,7 +25,7 @@ Tags: A way to tell computer styles. Eg. `<i>Go</i>`
 		File Level/ Structural Tags:
 
 An example of HTML:
-```
+```html
 <html lang = “en”> The language used in this page
 	<head>
 		<meta charset = “UTF-8” /> <--This is the information of which language to use, eg. English not Japnese-->
