@@ -3,7 +3,7 @@
 Client side programming: Preferred if possible. Eg. Google map, database query
 Server side programming: More cost for server, require more internet
 
-Terms:
+### Terms:
 HTML: Hypertext Markup Language
 HTTP: Hypertext Transport Protocol
   Hypertext: Link text not line by line, but as a graph of reference
@@ -11,7 +11,7 @@ HTTP: Hypertext Transport Protocol
 CSS: Cascading style sheet
   HTML and CSS: CSS provide format information, HTML provides skeleton of content (text, table, …)
 XML: Extensible Markup Language
-
+```
 HTML is not case sensitive, XML is. (HTML does not care Href, href, or HrEf)
 some tags might not have start or end tag, for example, </br>, <br></br>, <br> all works (but it’s better to use </br> because it’s XML format)
 
@@ -23,7 +23,10 @@ Tags: A way to tell computer styles. Eg. <i>Go</i>
       Block Level Tags can have Inline Tags (a <h1> title can be Italic), but not vice versa
       Some block level tags can have other b
     File Level/ Structural Tags:
+```
+
 An example of HTML:
+```html
 <html lang = “en”> The language used in this page
 <head>
 <meta charset = “UTF-8” /> This is the information of which language to use, eg. English not Japnese
@@ -33,6 +36,7 @@ An example of HTML:
   …
 </body> Things inside body are all things shown on the page
 </html>
+```
 
 ## Lecture 2:
 HTML Style validator: validator.w3.org
@@ -59,6 +63,7 @@ p.important{…} // This will only affect important “p” styles.
 
 <h2 class=“important cal”>Cal</h2> //This means in two classes, “important” and “cal”, this is why its called cascading, means multiple layers from top to bottom
 ```
+
 ```
 //If we want to change all “stanford” word to red in an HTML, we find all “stanford” and replace to :
 <span class=“stanford”>stanford</span>
@@ -93,10 +98,32 @@ Use CSS inside HTML:
 </body>
 ```
 If we want to make the style as an external file, need to: change<style> tag to <link ref = >, then move everyhing inside style (not include <style> tag):
-```
+
+```html
 <link href=“example.css” rel = “stylesheet” />
 // “stylesheet” is relationship, “rel” is different than “type”
 ```
+
 One html can use multiple css. If there are conflicts for a same class in different css files, the latest file works
 Similarly, one css can be applied to multiple htmls.
+
+For some tag, for example <h1>, if we donot want the internal attributes, for example border, margin and padding, we can use the reset file:
+Just google reset.css (CSS: the missing manual, myweb.com)
+	
+	In CSS:
+	Custom Properties:
+	```
+	:root {--my-color: rdb(140, 21,21);}
+	h1 {background-color: var(--my-color);}
+	//--my-color is called custom property, kind of like variable
+	```
+	p {width: cal(100% - 4em)} // calculation
+	```
+	Property types in CSS:
+	Font Properties
+	Text Properties
+	Box Properties
+	Classification Properties
+	Color and Background
+	
 	
