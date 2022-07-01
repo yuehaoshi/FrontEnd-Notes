@@ -58,15 +58,12 @@ ol>li {color:red;} /*means only first layer of ol is red*/
 <style>
 	.important {
 	  fontColor: red;
-	} 
+	} <!--So that all class of “important” will be in color red-->
+	p.important{…} <!--This will only affect important “p” styles-->
 </style>
 <body>
-	<!--So that all class of “important” will be in color red-->
 	<h3 class=“important”>Title</h3>
-	<!--or-->
-	p.important{…} <!--This will only affect important “p” styles-->
-
-	<h2 class=“important cal”>Cal</h2> <!--This means in two classes, “important” and “cal”, 
+	<h4 class=“important cal”>Cal</h2> <!--This means in two classes, “important” and “cal”, 
 						this is why its called cascading, means multiple layers from top to bottom-->
 </body>
 ```
@@ -181,3 +178,5 @@ img alt: Better to specify how large is this image so that if someone cannot dow
 Image Rightmost Pixel <-- Padding --> Border <-- Margin --> Other Blocks
 Border must clarify properties: color, width, style
 You can control different margins on top, bottom, left, right
+### Sprite
+Display several images from one download image file, so that we can put lots of icons inside one image (e.g. amazon)
