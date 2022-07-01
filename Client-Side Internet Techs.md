@@ -28,12 +28,12 @@ An example of HTML:
 ```html
 <html lang = “en”> The language used in this page
 	<head>
-		<meta charset = “UTF-8” /> <--This is the information of which language to use, eg. English not Japnese-->
-		<title>New Example</title> <--This is the text shown in the tag of the page-->
-	</head> <--Head stores some required information that will not be shown on page-->
+		<meta charset = “UTF-8” /> <!--This is the information of which language to use, eg. English not Japnese-->
+		<title>New Example</title> <!--This is the text shown in the tag of the page-->
+	</head> <!--Head stores some required information that will not be shown on page-->
 	<body>
 	  …
-	</body> <--Things inside body are all things shown on the page-->
+	</body> <!--Things inside body are all things shown on the page-->
 </html>
 ```
 
@@ -45,7 +45,7 @@ Good points for separating HTML and CSS: can keep HTML semetics but change CSS p
 CSS Selection Decorator Block
 ```
 /*This is CSS comment, cannt use “//“*/
-<! - - This is an HTML comment - ->
+<!--This is an HTML comment-->
 ```
 ### Lists
 ol: ordered list; ul: unordered list; li: list element(in both ol and ul)
@@ -54,45 +54,45 @@ ol li {color:red;} /*means all li inside ol is red*/
 ol>li {color:red;} /*means only first layer of ol is red*/
 ```
 ### class selector
-```
+```html
 <style>
 	.important {
 	  fontColor: red;
 	} 
 </style>
 <body>
-	<--So that all class of “important” will be in color red-->
+	<!--So that all class of “important” will be in color red-->
 	<h3 class=“important”>Title</h3>
+	<!--or-->
+	p.important{…} <!--This will only affect important “p” styles-->
 
-	<--or-->
-	p.important{…} <--This will only affect important “p” styles-->
-
-	<h2 class=“important cal”>Cal</h2> <--This means in two classes, “important” and “cal”, this is why its called cascading, means multiple layers from top to bottom-->
+	<h2 class=“important cal”>Cal</h2> <!--This means in two classes, “important” and “cal”, 
+						this is why its called cascading, means multiple layers from top to bottom-->
 </body>
 ```
 If we want to change all “stanford” word to red in an HTML, we find all “stanford” and replace to :
-```
+```html
 <span class=“stanford”>stanford</span>
-<--Then in style, all:-->
+<!--Then in style, all:-->
 span.stanford{color: red}
-<--Span allows us to take a lot of words and change color. We can use as many span as we want-->
-<--Difference between span and div: span is text-level tag, div is block-level tag-->
+<!--Span allows us to take a lot of words and change color. We can use as many span as we want-->
+<!--Difference between span and div: span is text-level tag, div is block-level tag-->
 ```
 Another important selector is the “id” selector, for example:
-```
+```html
 <h2 id=“other”>Others</h2>
-<--Then in style:-->
+<!--Then in style:-->
 #other {background-color: gray}
-<--id cannot be used for more than 1 tags, unlike class which can be used multiple times-->
+<!--id cannot be used for more than 1 tags, unlike class which can be used multiple times-->
 ```
 Style is for CSS, and body is for HTML (content shown on page)
-```
+```html
 <style></style>
 <body></body>
 ```
 ### Internal and External CSS
 Use CSS inside HTML:
-```
+```html
 <!DOCTYPE html>
 <html>
 	<head>
@@ -109,9 +109,9 @@ Use CSS inside HTML:
 If we want to make the style as an external file, need to: change`<style>` tag to `<link ref = >`, 
 then move everyhing inside style (not include `<style>` tag):
 
-```
+```html
 <link href=“example.css” rel = “stylesheet” />
-// “stylesheet” is relationship, “rel” is different than “type”
+<!--“stylesheet” is relationship, “rel” is different than “type”-->
 ```
 
 One html can use multiple css. If there are conflicts for a same class in different css files, the latest file works
@@ -122,12 +122,11 @@ for example border, margin and padding, we can use the reset file:
 Just google reset.css (CSS: the missing manual, myweb.com)
 	
 ### CSS Custom Properties:
-```
+```css
 :root {--my-color: rdb(140, 21,21);}
 h1 {background-color: var(--my-color);}
-//--my-color is called custom property, kind of like variable
-
-p {width: cal(100% - 4em)} // calculation
+/*--my-color is called custom property, kind of like variable*/
+p {width: cal(100% - 4em)} /* cal is for calculation*/
 ```
 Property types in CSS:
 Font Properties
@@ -138,7 +137,7 @@ Color and Background
 
 ### CSS Anker Property
 CSS can even change anker prpperty:
-```
+```html
 <style>
 	a {color: red;
 	   text-decoration: none;}
@@ -149,28 +148,28 @@ CSS can even change anker prpperty:
 ```
 ### Pseudo Element / Class
 Act as actual element on webpage but not actually there
-```
+```html
 <style>
 	a:hover {color: red;
 	text-decoration: overline underline;}
 	p::first-letter {font-size: 1in}
 </style>
 <body>
-	<p>...</p> <--THis will make only the first letter of paragraph be 1in, 
+	<p>...</p> <!--THis will make only the first letter of paragraph be 1in, 
 			but actually there is no specific tag around that first letter, 
 			so this is why we call it "Pseudo element". Use double colons-->
-	<a href=""/> <--This is the Pseudo Class example, use single colon-->
+	<a href=""/> <!--This is the Pseudo Class example, use single colon-->
 </body>
 ```
 ### Fragments
 a href can ref inpage ids:
-```
+```html
 <a href="#ttag"/>
 <h1 id="ttag"></h1>
 ```
 ### Image
 img alt: Better to specify how large is this image so that if someone cannot download it they can know
-```
+```html
 <style>
 	#puppy {float: left;}
 </style>
