@@ -201,6 +201,7 @@ Display several images from one download image file, so that we can put lots of 
 	- Two `<img>` or `<div>` can float together. For example, if both images are floating left, they will be in a same line if space allowed. (if space not allowed one will be at below another instead of same line, but we wrap those two into a big `<div>` and fix width to keep them moving down when space not allowed)
 	- If we donot define float width, the float will automatically take the full page width
 	- If things from two different `<div>`s floating together, we can add `clear:both` style on the bottom of the top div, so that there is a `<div>` bar that forbid both left and right side of it to be floated with. (addd `overflow: hidden` in `<div>` can have the same effect)
+	- `<div>`s can contain `<div>`s, but when we have irregular grids, the `<div>`s can still be messy, which is why we are in favor of grid-based layout more
 - FlexBox Layout
 - Grid-Based Layout: Recommended by Professor
 How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
