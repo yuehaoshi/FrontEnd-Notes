@@ -180,3 +180,29 @@ Border must clarify properties: color, width, style
 You can control different margins on top, bottom, left, right
 ### Sprite
 Display several images from one download image file, so that we can put lots of icons inside one image (e.g. amazon)
+
+## Lecture 3
+### Four Layout Techniques
+- Table-based Layout: early magazines, papers. 
+	- Has table tag, way to create rows and columns, also tables can be put into tables
+	- Issue1: May be very chunky if multi tables inside a table (e.g., left half is whole table, right half has multiple cols&rows)
+	- Issue2: Old techniqe, so might be formatting problem if opening in 2022 browser
+	- Issue3: We hardwire layout and cannot have different layout for laptop and cellphones (This is the biggest issue)
+- Float-based Layout: 2000 to until few years ago
+	```html
+	<style>
+		#puppy {float: left;}
+	</style>
+	<body>
+		<img id="puppy" src="puppy,jpg" alt="Molly"/>
+	</body>
+	<!-- Puppy will be frozen in page left side, and text will adjust based on page size -->
+	```
+	- Two <img> or <div> can float together. For example, if both images are floating left, they will be in a same line if space allowed. (if space not allowed one will be at below another instead of right, but we can wrap those two into one body to keep them moving down when space not allowed)
+	- If we donot define float width, the float will automatically take the full page width
+	- 
+- FlexBox Layout
+- Grid-Based Layout: Recommended by Professor
+How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
+E.g., in developing countries which computer support is not enough, grid-based layout may not suit (~5% of global users)
+
