@@ -204,6 +204,8 @@ Display several images from one download image file, so that we can put lots of 
 	- `<div>`s can contain `<div>`s, but when we have irregular grids, the `<div>`s can still be messy, which is why we are in favor of grid-based layout more
 - FlexBox Layout
 - Grid-Based Layout: Recommended by Professor
+
+
 How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
 E.g., in developing countries which computer support is not enough, grid-based layout may not suit (~5% of global users)
 
