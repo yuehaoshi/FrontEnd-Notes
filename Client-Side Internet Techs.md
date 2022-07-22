@@ -201,9 +201,49 @@ Display several images from one download image file, so that we can put lots of 
 	- Two `<img>` or `<div>` can float together. For example, if both images are floating left, they will be in a same line if space allowed. (if space not allowed one will be at below another instead of same line, but we wrap those two into a big `<div>` and fix width to keep them moving down when space not allowed)
 	- If we donot define float width, the float will automatically take the full page width
 	- If things from two different `<div>`s floating together, we can add `clear:both` style on the bottom of the top div, so that there is a `<div>` bar that forbid both left and right side of it to be floated with. (addd `overflow: hidden` in `<div>` can have the same effect)
-	- `<div>`s can contain `<div>`s, but when we have irregular grids, the `<div>`s can still be messy, which is why we are in favor of grid-based layout more
+	- `<div>`s can contain `<div>`s, but when we have irregular grids, the `<div>`s can still be messy, which is why we are in favor of flexbox layout more
 - FlexBox Layout
+	- FlexBox and Grid-based layout are always used together, larger block use grid and small block use flexbox. You can use flexbox to design a web, but flexbox is not intended or designed to do entire web 
+	- Flexbox is like container has lots of items, each item has same weight, we can list those items in row or in columns, depends on different view purpose (laptop or phone). For example:
+		- ```
+		- #main {
+		- display: flex;
+		- flex-direction: column;}
+		- ```
+	- flexbox can be used to adjust alignment, very flexible
+	- Flex is designed for small section of website, not entire web (you can but not recommended)
 - Grid-Based Layout: Recommended by Professor
+	- The specification of grid and felx is on the parent-level, not the children-level
+		```html
+		<head>
+			<style>
+				body {display: grid; grid-template-columns: 100px 100px; grid-template-rows: 100px 100px;}
+				div {border: 1px splid blue; margin: 2px;}
+				#a{grid-column-start: 1; grid-row-start: 1;}
+				#b{grid-column-start: 2; grid-row-start: 1;}
+				#c{grid-column-start: 1; grid-row-start: 2;}
+				#d{grid-column-start: 2; grid-row-start: 2;}
+			</style>
+		</head>
+		<body>
+			<div id='a'>Alpha</div>
+			<div id='b'>Alpha</div>
+			<div id='c'>Alpha</div>
+			<div id='d'>Alpha</div>
+		</body>
+		```
+	- What if a grid is crossing multiple rows or columns? 
+		- Way1: Using `#a{grid-column-start: 1; grid-column-end: 3;}`(this will make this grid taking `1col*2row` at lefttop corner, not `1*3` but `1*2`)
+		- Way2: Using `#a{grid-column-start: 1; grid-row: 1/3;}`
+		- Way3: Using `#a{grid-column-start: 1; grid-row: 1 / span 2;}`
+	- How to define size of grid?
+		- `body {display: grid; grid-template-columns: 100px 100px;}`
+		- `body {display: grid; grid-template-columns: 50% 50%;}`
+		- `body {display: grid; grid-template-columns: 75px 1fr 2fr;}` There will be three grids in the row, the first is fixed size, the other two are changing based on the page size, and the third one is always two times wider than the second one. "template-column" means the width of the grid
+		- `body {display: grid; grid-template-rows: auto 100px auto;}` auto means just enough space to wrap content
+	- Overflow: `body {display: grid; grid-template-columns: 100px 100px; grid-template-rows: 100px 100px;}
+	- #a{grid-column-start: 1; grid-row-start: 1; overflow-hidden}` this overflow hidden will truncate the content more than grid_a's size. Other wise, the content will flow out of grid_a
+	
 
 
 How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
