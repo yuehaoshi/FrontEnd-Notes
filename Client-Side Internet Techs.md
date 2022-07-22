@@ -241,8 +241,8 @@ Display several images from one download image file, so that we can put lots of 
 		- `body {display: grid; grid-template-columns: 50% 50%;}`
 		- `body {display: grid; grid-template-columns: 75px 1fr 2fr;}` There will be three grids in the row, the first is fixed size, the other two are changing based on the page size, and the third one is always two times wider than the second one. "template-column" means the width of the grid
 		- `body {display: grid; grid-template-rows: auto 100px auto;}` auto means just enough space to wrap content
-	- Overflow: `body {display: grid; grid-template-columns: 100px 100px; grid-template-rows: 100px 100px;}
-	- #a{grid-column-start: 1; grid-row-start: 1; overflow-hidden}` this overflow hidden will truncate the content more than grid_a's size. Other wise, the content will flow out of grid_a
+	- Overflow: ```body {display: grid; grid-template-columns: 100px 100px; grid-template-rows: 100px 100px;}
+		       #a{grid-column-start: 1; grid-row-start: 1; overflow-hidden}``` this overflow hidden will truncate the content more than grid_a's size. Other wise, the content will flow out of grid_a
 	
 
 
