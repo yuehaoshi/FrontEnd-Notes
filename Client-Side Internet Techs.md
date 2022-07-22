@@ -183,6 +183,8 @@ Display several images from one download image file, so that we can put lots of 
 
 ## Lecture 3
 ### Four Layout Techniques
+How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
+E.g., in developing countries which computer support is not enough, grid-based layout may not suit (~5% of global users)
 - Table-based Layout: early magazines, papers. 
 	- Has table tag, way to create rows and columns, also tables can be put into tables
 	- Issue1: May be very chunky if multi tables inside a table (e.g., left half is whole table, right half has multiple cols&rows)
@@ -239,13 +241,35 @@ Display several images from one download image file, so that we can put lots of 
 	- How to define size of grid?
 		- `body {display: grid; grid-template-columns: 100px 100px;}`
 		- `body {display: grid; grid-template-columns: 50% 50%;}`
+		- `body {display: grid; grid-template-columns: minmax(100px 200px);}` column width is changing from 100px to 200px based on contents
+		- `body {display: grid; grid-template-columns: repeat(3 1fr);}` will create 3 columns, each with 1fr size
 		- `body {display: grid; grid-template-columns: 75px 1fr 2fr;}` There will be three grids in the row, the first is fixed size, the other two are changing based on the page size, and the third one is always two times wider than the second one. "template-column" means the width of the grid
 		- `body {display: grid; grid-template-rows: auto 100px auto;}` auto means just enough space to wrap content
+		- `body {display: grid; grid-template-columns: 200px 200px; grid-template-rows: autp; grid-column-gap: 20px; grid-row-gap: 10px}` this is to specify the gap between cols and rows. Another way is to make gap as a narrow grid.
 	- Overflow: ```body {display: grid; grid-template-columns: 100px 100px; grid-template-rows: 100px 100px;}
-		       #a{grid-column-start: 1; grid-row-start: 1; overflow-hidden}``` this overflow hidden will truncate the content more than grid_a's size. Other wise, the content will flow out of grid_a
+		       #a{grid-column-start: 1; grid-row-start: 1; overflow: hidden}``` this overflow hidden will truncate the content more than grid_a's size. Other wise, the content will flow out of grid_a
+	- Difference between grid and table:
+		- the presrentation of table-based is locked in html, float-based is partially locked in html (e.g., we can use an empty div to keep float border), but grid is in CSS and not locked in html
+		- grid can be changed in different browsers, different divices
+
+### Responsive Web Design
+How to display page suitable for different device? One way is: the user agent in user's device is deciding which version of html to receive and display in screen, but sometimes wrong html received. Another way is to use responsive web design idea. Two examples for using responsible web design: media types && screen print
+	- Screen print: If we display a web in screen in dark mode, and decided to print the page, it will check the screen situation and decide to reverse color before printing
+	- Media Type: Make sure all buttons are at least finger-size in all devices, we can use `@media (pointer: coarse) {nav li {width:200px;height:50pxmargin:15px;border:5px solid red;}`, makes pointer twice as large
+- You can add `<style>@import "landscape.css"(orientation: landscape)</style>` to do media query, or `<style>@media screen and (orientation: portrait) {#nav {display:none;}}</style>`, if media==screen and orientation==portrait then #nav_display is none
+
+- If we have a navigation bar at left and we donot want it to display at phone screen, we do `<style>@media screen and (max-width: 480px) {#nav {display:none;}}</style>`, so if screen max-width is less than 480, the `#nav` block will disappear, the width that makes nav disappear is [0, 480px]
+`orientation: portrait` is "竖屏", `orientation: landscape` is "横屏"
+
+- CSS Positioning (used in CSS type/class/id)
+	- A technique allow us to locate a specific position in web page. For example, we can fix an image with 1in top and 1in left on the page (by using `position: absolute` positioning), but this will change the display in different devices, for example, google map window. 
+	- Default position is `position: static`. 
+	- Another position is `position: fixed`, which will not move when scroll up and down, but `absolute` will move with scroll (`absolute` is absolute with the page top, but not with the page window top). Fix can be used on top nav bar, it's like the "frozen" function in excel
+	- Another position is `position: sticky`, `#traditions {position: sticky; top: 0.1in}` divs with this #traditions style class will move with scroll until reach the top 0.1 inch. After that, it will be fixed at 0.1inch top
+	- Another position is `position: relative`, relative and absolute can be combined together to make some effect
+
 	
 
 
-How to determine which techniques to use? Think about who your audience is. (Check `caniuse.com`)
-E.g., in developing countries which computer support is not enough, grid-based layout may not suit (~5% of global users)
+
 
