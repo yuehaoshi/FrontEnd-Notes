@@ -268,8 +268,6 @@ How to display page suitable for different device? One way is: the user agent in
 	- Another position is `position: sticky`, `#traditions {position: sticky; top: 0.1in}` divs with this #traditions style class will move with scroll until reach the top 0.1 inch. After that, it will be fixed at 0.1inch top
 	- Another position is `position: relative`, relative and absolute can be combined together to make some effect
 
-	
-
 
 
 
