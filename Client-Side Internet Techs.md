@@ -268,6 +268,78 @@ How to display page suitable for different device? One way is: the user agent in
 	- Another position is `position: sticky`, `#traditions {position: sticky; top: 0.1in}` divs with this #traditions style class will move with scroll until reach the top 0.1 inch. After that, it will be fixed at 0.1inch top
 	- Another position is `position: relative`, relative and absolute can be combined together to make some effect
 
+## Lecture 4
+### color
+- 24 bit color - RGB, HDR. We can use in CSS as: `rgb(100, 0, 256)`, or `rgb(25%, 0%, 75%)`, or `#8b0000`. Thing like `#8fbc8f` are six digits hexadecimal
+- Binary is very long for human interpreting of color index, hexadecimal is good, base-16,  `#8fbc8f` first two is representing red, next two represents green, last two for blue
+- `#ffffff`, all r all g all b, white, `#000000`, no r no g no b, black, `#808080`, half r half g half b, grey. `#fff`==`#ffffff`, but less types of color can be represented in this way
+- There are also 32-bits color with adding alpha (transparency / opacity)
+
+### Table
+- Table is a good way to layout forms
+	```html
+	<head>
+	<style>
+		table {border-collapse: collapse;}
+		td, th {width: 8em; border: 1px solid black; padding: 5px}
+	</style>
+	</head>
+	<body>
+	<table>
+		<tr><th>Stanford</th><th>Cal</th></tr>
+		<tr><td>21</td><td>3</td></tr>
+	</table>
+	</body>
+	```
+	- th: table head; td: table data; th will set middle and bold text compared to td; td text is left-aligned
+	- border: must define border if you want border; border-collapse: without this each cell will seperate from each other; 
+- Two lines table head: 
+	```html
+	<tr><th rowspan="2"></th> <th colspan="3">Geographic ORigin</th></tr>
+	<tr>                <th>Cal</th> <th>Other US</th> <th>Foreigh</th></tr>
+	```
+
+### Form
+- Each time we want to submit something or search, we use form
+	```html
+	<form id="signup" action="show-result.php" method="get">
+		<input type="text" name="email" />
+		<input type="password" name="" />
+		<input type="checkbox" name="" />
+		<tr>
+			<td><b>Travel Arrangements:</b><br />
+				<input name="travel" type="radio"  value="none"/>
+					None
+					<input name="travel" type="radio"  value="bus" checked="checked" />
+					Bus
+			</td>
+			<input type="text" placeholder="Example"/>
+		</tr>
+		<input type="button"> (Also you can use <button></button>, this can have more fancy function like image as button)
+		<input value="Submit" type="submit"/>
+		<input value="Reset" type="reset"/>
+		<select name="rentalPackage" id="rentalPackage" size="1"> (if you change size>1, there will be more than 1 option show on page)
+			<option value="none">None</option> (If there is no value set, the server will get the text as value)
+			<option>Package</option>
+		</select>
+		<fieldset>
+			<textarea rows="6" cols="40">Enter Here (default value here)</textarea>
+		</fieldset>
+	</form>
+	```
+	- Action and method is : when we are communicating with a web server, how it is gonna go. 
+	- Action is the location of the program that will respond when the user submit the form.
+	- Method: how the information is gonna be sent to the server. Two important methods: get and post
+	- Get will generate a new URL that put the data into URL, POST will not put data in generated URL
+	- GET is idempotent, POST is not, i.e., POST will change the status of server, for example, I submitted a form to buy 1 ticket using POST form, and refresh the page again, and I will get another 1 ticket send to the server
+	- Form Elements (Controls / Widgets). Cannot put form inside form
+	- Use `checkbox` if you want user to choose as many of items. Use `radio` if you only want user to choose one
+	- Why we put `value` in submit and reset? The value is what appears on the button
+	- `Reset` will reset to initial value, we can add `value="defaulvalue"` in other `<input>` tags. For radio button, one of the buttons is `checked` as default
+	- `button` type will create a push button on page with its `value` shown, generally used for excuting JavaScript program
+	- New features in HTML5: `placeholder`, light grey text that is default, but not editable (input `value` default is editable)
+	- New features in HTML5: `type="number" value="1" min="1" max="10"` (number box that can increment or decrement), `type="range" min="1" max="10"` (dragable progreee bar), `type="date"`, `type="time"`, `type="color"` (color picker), url, email, telephone types...
+	- `<select>` is also called pulldown menu
 
 
 
